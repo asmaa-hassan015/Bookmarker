@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/all.min.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+    <div class="container my-5">
+        <header class="text-center position-relative mb-5 pb-4">
+            <h1 class="fw-bolder">Bookmarker</h1>
+        </header>
+
+        <section class=" form-section">
+            <h2 class="text-center mb-4">
+                <i class="fa-solid fa-bookmark pe-2"></i> Bookmark your favorite sites
+            </h2>
+
+            <div class="mb-4">
+                <label for="bookmarkName" class="form-label fw-semibold">
+                    <i class="fa-solid fa-book-bookmark pe-2"></i> Site Name
+                </label>
+                <input type="text" class="form-control" id="bookmarkName" placeholder="Bookmark Name">
+            </div>
+
+            <div class="mb-4">
+                <label for="bookmarkURL" class="form-label fw-semibold">
+                    <i class="fa-solid fa-link pe-2"></i> Site URL
+                </label>
+                <input type="text" class="form-control" id="bookmarkURL" placeholder="http://example.com">
+            </div>
+
+            <button class="btn btn-submit px-5" id="submitBtn">Submit</button>
+        </section>
+        
+        <section class="mt-5">
+            <table class="table text-center table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="w-25">Index</th>
+                        <th>Website Name</th>
+                        <th>Visit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    </tbody>
+            </table>
+        </section>
+    </div>
+
+<div class="modal fade" id="validationModal" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content custom-modal-style">
+            
+            <div class="modal-header custom-modal-header border-0 pb-0">
+                <div class="traffic-lights">
+                    <span class="traffic-light red"></span>
+                    <span class="traffic-light yellow"></span>
+                    <span class="traffic-light green"></span>
+                </div>
+                <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body pt-0 ">
+                
+                <h3 class="fw-bolder mb-4 modal-title-bg">Site Name or Url is not valid, Please follow the rules below :</h3>
+                
+                <ul class="list-unstyled text-start   modal-list">
+                    <li class="mb-3 fs-5">
+                        <i class="fa-solid fa-arrow-right  custom-icon-color bordered-icon"></i> 
+                        Site name must contain at least 3 characters
+                    </li>
+                    <li class="mb-3 fs-5">
+                        <i class="fa-solid fa-arrow-right custom-icon-color bordered-icon"></i> 
+                        Site URL must be a valid one
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

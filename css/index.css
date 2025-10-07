@@ -1,0 +1,219 @@
+body {
+    background-color: #f7ecde; 
+    font-family: 'PT Sans', sans-serif; 
+}
+header h1 {
+    font-family: 'Pacifico', cursive; 
+    font-size: 50px;
+    color: #352a2a;
+    font-weight:500 ; 
+}
+header h1::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 20px; 
+    background-color: #fec260;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: -1;
+    transition: all 0.4s ease-in-out;
+}
+header h1:hover::before {
+    height: 40px;
+    transform: translateX(-50%) ;
+}
+.form-section h2 {
+    color: #352a2a;
+    font-weight: 500;
+    font-size: 25px;
+    padding-bottom: 25px; 
+}
+.form-section h2 i {
+    color: #9eb231; 
+    font-size: 28px; 
+}
+
+.form-label {
+    color: #352a2a;
+    font-weight: 600 !important; 
+    font-size: 16px; 
+}
+.form-label i {
+    color: #352a2a; 
+    font-size: 20px;
+}
+.form-control {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px 15px; 
+}
+
+.form-control:focus {
+    border-color: #fec260;
+    box-shadow: 0 0 0 0.25rem rgba(254, 194, 96, 0.25); 
+}
+.form-control.is-invalid {
+    border-color: #bb4120 !important; 
+    box-shadow: 0 0 0 0.25rem rgba(187, 65, 32, 0.25) !important;
+}
+.btn-submit {
+    background-color: #bb4120; 
+    color: white;
+    font-size: 16px; 
+    font-weight: 500;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: block; 
+    margin: 30px auto 0 auto; 
+}
+.btn-submit:hover {
+    background-color: #8c2a11;
+    color: white;
+}
+
+.btn-visit {
+    background-color: #9eb231; 
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+.btn-visit:hover {
+    background-color: #798a25;
+    color: white;
+}
+.btn-delete {
+    background-color: #bb4120;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px; 
+    padding: 8px 15px;
+}
+.btn-delete:hover {
+    background-color: #8c2a11;
+    color: white;
+}
+
+.table {
+    border: 1px solid #e0e0e0;
+}
+.table thead th {
+    background-color: #f8f9fa;
+    color: #352a2a;
+    font-weight: 600;
+}
+.table tbody td {
+    vertical-align: middle; 
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.03); 
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(254, 194, 96, 0.1);
+}
+.custom-modal-style {
+    border-radius: 10px;
+    box-shadow: none !important; 
+    border: 1px solid #ccc; 
+    overflow: hidden; 
+}
+.custom-modal-header {
+    background-color: #f1f1f1; 
+    padding: 10px 15px 10px 15px !important; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+    position: relative;
+}
+.traffic-lights {
+    display: flex;
+    gap: 8px; 
+}
+.traffic-light {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.traffic-light.red { background-color: #ff5f56; }
+.traffic-light.yellow { background-color: #ffbd2e; }
+.traffic-light.green { background-color: #27c93f; }
+
+.modal-close-btn {
+    background-image: none; 
+    opacity: 1;
+    color: #352a2a;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    position: relative;
+    width: 25px; 
+    height: 25px;
+    line-height: 1;
+}
+.modal-close-btn::before {
+    content: "\00d7";
+    font-size: 30px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #352a2a;
+}
+.modal-close-btn:focus {
+    box-shadow: none;
+    opacity: 0.9;
+}
+.modal-body {
+    padding-top: 20px !important;
+    padding-bottom: 25px !important;
+}
+
+.modal-title-bg {
+    color: #352a2a; 
+    font-size: 20px;
+    font-weight: 700 !important;
+    background-color: transparent !important; 
+    padding: 0 !important;
+    margin-bottom: 15px !important;
+}
+
+.modal-list {
+    padding: 0;
+    list-style: none;
+}
+.modal-list li {
+    color: #352a2a;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px; 
+    border-radius: 5px;
+    margin-bottom: 10px !important;
+    display: flex;
+    align-items: center;
+}
+.custom-icon-color {
+    color: #bb4120; 
+    font-size: 14px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+.bordered-icon {
+    border: 2px solid #bb4120; 
+    border-radius: 50%;
+    width: 20px; 
+    height: 20px; 
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+
+}
+.bordered-icon{
+    font-size: 12px;
+}
