@@ -1,14 +1,15 @@
-
+// ==== Elements ====
 let siteNameInput = document.getElementById('bookmarkName');
 let siteUrlInput = document.getElementById('bookmarkURL');
 let submitBtn = document.getElementById('submitBtn');
 let tableBody = document.getElementById('tableBody');
 
+// ==== Modal ====
 let validationModalElement = document.getElementById('validationModal');
 let validationModal = new bootstrap.Modal(validationModalElement);
 
+// ==== Bookmarks List ====
 let bookmarkList; 
-
 if (localStorage.getItem('bookmarks')) {
     bookmarkList = JSON.parse(localStorage.getItem('bookmarks'));
     displayBookmarks(); 
@@ -16,63 +17,55 @@ if (localStorage.getItem('bookmarks')) {
     bookmarkList = [];
 }
 
+// ==== Event Listener ====
 submitBtn.addEventListener('click', function() {
     if (validateInputs()) {
-       
         let bookmark = {
-            name: siteNameInput.value,
-            url: siteUrlInput.value
+            name: siteNameInput.value.trim(),
+            url: siteUrlInput.value.trim()
         };
         bookmarkList.push(bookmark);
-        
-     
         localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
-        
         displayBookmarks();
         clearInputs();
-        
-      
         siteNameInput.classList.remove('is-invalid');
         siteUrlInput.classList.remove('is-invalid');
-
     }
 });
 
-
+// ==== Validation Functions ====
 function validateName(name) {
-    return name.length >= 3;
+    return name.trim().length >= 3; // مش فاضي وكمان ≥ 3 حروف
 }
 
 function validateURL(url) {
-    const urlRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9]+\.[a-zA-Z]{2,}(\/[^\s]*)?$/;
-    return urlRegex.test(url);
+    if (url.trim() === '') return false; // مش فاضي
+    const urlRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$/;
+    return urlRegex.test(url.trim());
 }
 
 function validateInputs() {
-    let isNameValid = validateName(siteNameInput.value);
-    let isUrlValid = validateURL(siteUrlInput.value);
+    let name = siteNameInput.value;
+    let url = siteUrlInput.value;
+
+    let isNameValid = validateName(name);
+    let isUrlValid = validateURL(url);
 
     if (isNameValid && isUrlValid) {
         return true; 
     } else {
+        // Show modal
         validationModal.show(); 
 
-        if (!isNameValid) {
-             siteNameInput.classList.add('is-invalid');
-        } else {
-             siteNameInput.classList.remove('is-invalid');
-        }
-
-        if (!isUrlValid) {
-            siteUrlInput.classList.add('is-invalid');
-        } else {
-            siteUrlInput.classList.remove('is-invalid');
-        }
+        // Highlight invalid inputs
+        siteNameInput.classList.toggle('is-invalid', !isNameValid);
+        siteUrlInput.classList.toggle('is-invalid', !isUrlValid);
         
         return false;
     }
 }
 
+// ==== Display Function ====
 function displayBookmarks() {
     let cartona = '';
     for (let i = 0; i < bookmarkList.length; i++) {
@@ -96,12 +89,14 @@ function displayBookmarks() {
     tableBody.innerHTML = cartona;
 }
 
+// ==== Delete Function ====
 function deleteBookmark(index) {
     bookmarkList.splice(index, 1);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
     displayBookmarks();
 }
 
+// ==== Visit Function ====
 function visitWebsite(url) {
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
         url = 'https://' + url;
@@ -109,6 +104,7 @@ function visitWebsite(url) {
     window.open(url, '_blank');
 }
 
+// ==== Clear Inputs ====
 function clearInputs() {
     siteNameInput.value = '';
     siteUrlInput.value = '';
